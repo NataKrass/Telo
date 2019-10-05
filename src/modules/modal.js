@@ -92,13 +92,9 @@ const modal = () => {
 
          form.addEventListener('submit', (event) => {
              event.preventDefault();
-           
              form.replaceWith(statusMessage);
              const formData = new FormData(form);
-             
-            console.log(statusMessage)
              statusMessage.textContent = loadMessage;
-             
 
              postData(formData)
              .then((response) => {
@@ -131,6 +127,5 @@ const modal = () => {
     sendForm(form1);
     sendForm(form2);
     sendForm(bannerForm);
-
 }
 modal();
