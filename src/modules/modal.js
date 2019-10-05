@@ -82,7 +82,7 @@ const modal = () => {
          statusMessage = document.createElement('div');
          statusMessage.style.cssText = 'font-size: 1.5rem;';
          statusMessage.classList.add('form-text');
-        
+
          form.querySelector('button').addEventListener('click', () => {
             if (!form.querySelector('label').checked) { 
                 form.appendChild(statusMessage);
@@ -92,10 +92,14 @@ const modal = () => {
 
          form.addEventListener('submit', (event) => {
              event.preventDefault();
-             form.appendChild(statusMessage);
+           
+             form.replaceWith(statusMessage);
              const formData = new FormData(form);
+             
+            console.log(statusMessage)
              statusMessage.textContent = loadMessage;
              
+
              postData(formData)
              .then((response) => {
                  if (response.status !== 200) {
