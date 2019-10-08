@@ -2314,12 +2314,12 @@ p.personal-data input[type=checkbox]:checked+label:before {
 }
 .gallery-slider .prev {
     background-image: url(../images/arrow-left.png);
-    left: 7%;
+    left: 1%;
 }
 
 .gallery-slider .next {
     background-image: url(../images/arrow-right.png);
-    right: 7%;
+    right: 1%;
 }
 
 @media only screen and (max-width:1199px) {
