@@ -29,6 +29,8 @@ const sliders = () => {
             slidesToShow = 3;
             widthSlide = Math.floor(100 / slidesToShow);
 
+        } else {
+            widthSlide = Math.floor(100 / slidesToShow);
         }
         return slidesToShow;
     }
