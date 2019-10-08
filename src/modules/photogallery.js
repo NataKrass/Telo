@@ -1,24 +1,25 @@
-const slider = () => {
-    const slider = document.querySelector('.main-slider'),
+const gallery = () => {
+    const slider = document.querySelector('.gallery-slider'),
         slide = slider.querySelectorAll('.slide');
         
+    
     let currentSlide = 0,
-        dots,
         dotNew,
         interval;
-   
+
     slide[0].classList.add('slider-active');
     dots = document.createElement('ul');
     dots.classList.add('dots');
     slider.appendChild(dots);
     for(let i = 0; i < slide.length; i++){
         dotNew = document.createElement('li');
-    dotNew.classList.add('dot');
+    dotNew.classList.add('dot-gallery');
     dots.appendChild(dotNew);
     }
     
-    let  dot = document.querySelectorAll('.dot');
-    dot[0].classList.add('dot-active');
+    let dot = document.querySelectorAll('.dot-gallery');
+    dot[0].classList.add('dot-gallery-active');
+   
     const prevSlide = (elem, index, strClass) => {
            elem[index].classList.remove(strClass);
     };
@@ -28,13 +29,14 @@ const slider = () => {
 
     const autoPlaySlide = () => {
         prevSlide(slide, currentSlide, 'slider-active');
-        prevSlide(dot, currentSlide, 'dot-active');
+        
+        prevSlide(dot, currentSlide, 'dot-gallery-active');
         currentSlide++;
         if(currentSlide >= slide.length){
             currentSlide = 0;
         }
         nextSlide(slide, currentSlide, 'slider-active');
-        nextSlide(dot, currentSlide, 'dot-active');
+        nextSlide(dot, currentSlide, 'dot-gallery-active');
     };
 
     const startSlide = (time = 3000) => {
@@ -46,42 +48,52 @@ const slider = () => {
     };
     slider.addEventListener('click', (event) => {
         event.preventDefault();
+
         let target = event.target;
-         if(!target.matches('.portfolio-btn, .dot')){
+        
+         if(!target.matches('.gallery-btn, .dot-gallery')){
              return;
          }
 
         prevSlide(slide, currentSlide, 'slider-active');
-        prevSlide(dot, currentSlide, 'dot-active');
+        prevSlide(dot, currentSlide, 'dot-gallery-active');
 
-        if( target.matches('.dot')){
+        if(target.matches('#arrow-right')){
+            currentSlide++;
+        } else if(target.matches('#arrow-left')){
+            currentSlide--;
+        } else if( target.matches('.dot-gallery')){
             dot.forEach((elem, index) => {
                 if(elem === target) {
                     currentSlide = index;
                 }
             });
         }
+
         if(currentSlide >= slide.length) {
             currentSlide = 0;
         }
+
         if(currentSlide < 0){
             currentSlide = slide.length - 1;
         }
         nextSlide(slide, currentSlide, 'slider-active');
-        nextSlide(dot, currentSlide, 'dot-active');
+        nextSlide(dot, currentSlide, 'dot-gallery-active');
     })
 
     slider.addEventListener('mouseover', (event) => {
-        if(event.target.matches('.dot')){
+        if(event.target.matches('.gallery-btn') ||
+        event.target.matches('.dot-gallery')){
             stopSlide();
         }
     });
     slider.addEventListener('mouseout', (event) => {
-        if(event.target.matches('.dot')){
+        if(event.target.matches('.gallery-btn') ||
+        event.target.matches('.dot-gallery')){
             startSlide();
         }
     });
-    startSlide(2000); 
+    startSlide(1000); 
 };
 
-slider();
+gallery();

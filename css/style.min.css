@@ -1612,12 +1612,14 @@ nav.popup-menu .close-menu-btn img {
     padding-right: 75px;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center
+    text-align: center;
+    position: relative;
 }
 
 #gallery .gallery-slider .slide {
     margin: 0 auto !important;
-    width: 100%
+    width: 100%;
+    display: none
 }
 
 #gallery .gallery-slider .slider-arrow {
@@ -2257,6 +2259,69 @@ p.personal-data input[type=checkbox]:checked+label:before {
     margin-top: 30px
 }
 
+.d-block {
+    display: block !important;
+}
+
+.slider-active {
+    opacity: 1!important;
+    transition: opacity .5s;
+}
+.gallery-slider .slider-active {
+    display: block!important;
+}
+.dots {
+    position: absolute;
+    bottom:12%;
+    display: flex;
+}
+
+.dots .dot,
+.dot-gallery {
+    width: 40px;
+    height: 6px;
+    background: #fff;
+    margin: 3px;
+    cursor: pointer;
+    z-index: 1005;
+}
+
+.dots .dot-active,
+.dot-gallery-active {
+    background: #ffd11a;
+}
+
+.gallery-slider .dots {
+    left: 36%;
+}
+
+.gallery-btn {
+ position: absolute;
+ width: 30px;
+ height: 30px;
+ background-repeat: no-repeat;
+ border-radius: 50%;
+ background-color: #949494;
+ bottom: 50%;
+ background-position: 50%;
+ transition: 0.5s;
+}
+
+.gallery-btn:hover {
+  width: 32px;
+  height: 32px;
+  background-color: #ffd11a;
+}
+.gallery-slider .prev {
+    background-image: url(../images/arrow-left.png);
+    left: 7%;
+}
+
+.gallery-slider .next {
+    background-image: url(../images/arrow-right.png);
+    right: 7%;
+}
+
 @media only screen and (max-width:1199px) {
     .services-slider .slider-arrow.prev {
         left: 25px
@@ -2526,6 +2591,14 @@ p.personal-data input[type=checkbox]:checked+label:before {
         flex-wrap: wrap
     }
 
+    .gallery-slider .dots {
+        left: 31%;
+        bottom: 0;
+    }
+
+    .gallery-btn {
+        display: none;
+    }
     header .head-main .right .free-visit {
         width: 100%;
         -webkit-box-pack: center;
@@ -2557,7 +2630,10 @@ p.personal-data input[type=checkbox]:checked+label:before {
     .dots {
         left:20%;
     }
-
+    
+    .gallery-slider .dots {
+        left: 25%;
+    }
     .main-slider .slide .slide-text .offer-head .middle,
     .main-slider .slide.type2 .slide-text .offer-head .middle {
         font-size: 34px;
@@ -2678,30 +2754,3 @@ p.personal-data input[type=checkbox]:checked+label:before {
     }
 }
 
-.d-block {
-    display: block !important;
-}
-
-.slider-active {
-    opacity: 1!important;
-    transition: opacity .5s;
-}
-
-.dots {
-    position: absolute;
-    bottom:12%;
-    display: flex;
-}
-
-.dots .dot {
-    width: 40px;
-    height: 6px;
-    background: #fff;
-    margin: 3px;
-    cursor: pointer;
-    z-index: 1005;
-}
-
-.dots .dot-active {
-    background: #ffd11a;
-}
