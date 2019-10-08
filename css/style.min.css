@@ -2295,7 +2295,8 @@ p.personal-data input[type=checkbox]:checked+label:before {
     left: 36%;
 }
 
-.gallery-btn {
+.gallery-btn,
+.slide-btn {
  position: absolute;
  width: 30px;
  height: 30px;
@@ -2307,21 +2308,27 @@ p.personal-data input[type=checkbox]:checked+label:before {
  transition: 0.5s;
 }
 
-.gallery-btn:hover {
+.gallery-btn:hover,
+.slide-btn:hover {
   width: 32px;
   height: 32px;
   background-color: #ffd11a;
 }
-.gallery-slider .prev {
+.gallery-slider .prev,
+#slide-arrow-left {
     background-image: url(../images/arrow-left.png);
     left: 1%;
 }
 
-.gallery-slider .next {
+.gallery-slider .next,
+#slide-arrow-right {
     background-image: url(../images/arrow-right.png);
     right: 1%;
 }
 
+.slide-arrow-right {
+    right: 0;
+}
 @media only screen and (max-width:1199px) {
     .services-slider .slider-arrow.prev {
         left: 25px
