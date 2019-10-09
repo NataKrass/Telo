@@ -1,3 +1,4 @@
+'use strict';
 const sliders = () => {
     const wrap = document.querySelector('.services-slider'),
         main = document.querySelector('.slider-wrapper'),

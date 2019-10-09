@@ -26,7 +26,7 @@ const forms = () => {
              event.preventDefault();
              const formData = new FormData(form);
              statusMessage.textContent = loadMessage;
-
+             
              postData(formData)
              .then((response) => {
                  if (response.status !== 200) {
@@ -48,7 +48,21 @@ const forms = () => {
                     });
                 })
                 .catch ((error) => {
+                    thanks.style.display = 'block';
+                    let formContent = thanks.querySelector('.form-content');
+                    
+                    thanks.addEventListener('click', () =>  {
+                        thanks.style.display = 'none';
+                        form.querySelectorAll('input').forEach(element => {
+                            element.value = '';
+                        });
+                    });
+                    
                     statusMessage.textContent = errorMessage;
+                    formContent.querySelector('p').replaceWith(statusMessage);
+                    formContent.querySelector('h4').style.display = 'none';
+                    formContent.style.padding = '100px 0 0 0'
+                    form.querySelector('input[type=checkbox]').checked = false;
                     console.log(error);
                 })  
         });
