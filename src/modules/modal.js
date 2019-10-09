@@ -70,9 +70,7 @@ const modal = () => {
     });
 
     let form2 = document.getElementById('form2'),
-        form1 = document.getElementById('form1'),
-        bannerForm = document.getElementById('banner-form');
-      
+        form1 = document.getElementById('form1');
         
     const sendForm = (form) => {
         const errorMessage = "Ошибка",
@@ -126,6 +124,5 @@ const modal = () => {
     
     sendForm(form1);
     sendForm(form2);
-    sendForm(bannerForm);
 }
 modal();
