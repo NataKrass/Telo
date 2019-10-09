@@ -19,13 +19,18 @@ const forms = () => {
             if (!form.querySelector('label').checked) { 
                 form.appendChild(statusMessage);
                 statusMessage.textContent = agreeMessage;
-             } 
+             } else {
+                statusMessage.textContent = loadMessage;
+             }
          })
 
          form.addEventListener('submit', (event) => {
              event.preventDefault();
+             let formContent = thanks.querySelector('.form-content');
+             let formContenttext = formContent.querySelector('p');
+             
              const formData = new FormData(form);
-             statusMessage.textContent = loadMessage;
+            
              
              postData(formData)
              .then((response) => {
@@ -42,15 +47,14 @@ const forms = () => {
                          });
                      });
                     form.querySelector('input[type=checkbox]').checked = false;
-                    statusMessage.textContent = '';
+                    statusMessage.style.display = 'none';
                     form.querySelectorAll('input').forEach(element => {
                         element.value = '';
                     });
                 })
                 .catch ((error) => {
                     thanks.style.display = 'block';
-                    let formContent = thanks.querySelector('.form-content');
-                    
+                   
                     thanks.addEventListener('click', () =>  {
                         thanks.style.display = 'none';
                         form.querySelectorAll('input').forEach(element => {
@@ -59,12 +63,17 @@ const forms = () => {
                     });
                     
                     statusMessage.textContent = errorMessage;
-                    formContent.querySelector('p').replaceWith(statusMessage);
+                    // formContenttext.replaceWith(statusMessage);
+                    formContent.appendChild(statusMessage);
                     formContent.querySelector('h4').style.display = 'none';
+                    formContent.querySelector('button').style.display = 'none';
+                    formContenttext.style.display = 'none';
                     formContent.style.padding = '100px 0 0 0'
                     form.querySelector('input[type=checkbox]').checked = false;
                     console.log(error);
-                })  
+                }) 
+                
+                
         });
 
        
