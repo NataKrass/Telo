@@ -28,17 +28,15 @@ const forms = () => {
              event.preventDefault();
              let formContent = thanks.querySelector('.form-content');
              let formContenttext = formContent.querySelector('p');
-             
              const formData = new FormData(form);
             
-             
              postData(formData)
              .then((response) => {
                  if (response.status !== 200) {
                      throw new Error('status network not 200');
                  }
                     thanks.style.display = 'block';
-                    setTimeout(() =>  thanks.style.display = 'none', 8000);
+                    setTimeout(() =>  thanks.style.display = 'none', 4000);
     
                     thanks.addEventListener('click', () =>  {
                          thanks.style.display = 'none';
