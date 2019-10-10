@@ -24,6 +24,11 @@ const burger = () => {
         popupMenu.style.display = 'none';
         
     });
+     
+    let scroll = document.querySelectorAll('.scroll');
+    scroll.forEach((item) => {
+        item.scrollIntoView({ behavior: 'smooth' });
+    });
+       
 }
-
 burger();

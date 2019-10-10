@@ -36,7 +36,7 @@ const forms = () => {
                      throw new Error('status network not 200');
                  }
                     thanks.style.display = 'block';
-                    setTimeout(() =>  thanks.style.display = 'none', 4000);
+                    setTimeout(() =>  thanks.style.display = 'none', 3000);
     
                     thanks.addEventListener('click', () =>  {
                          thanks.style.display = 'none';
