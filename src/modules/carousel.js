@@ -86,4 +86,4 @@ const sliders = () => {
    
 };
    
-sliders();
+export default sliders;

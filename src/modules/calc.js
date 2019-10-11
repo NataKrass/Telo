@@ -50,4 +50,4 @@ const calc = () => {
         showPrice.textContent = Math.ceil(priceEl.price * discount);
     };
 };
-calc();
+export default calc;

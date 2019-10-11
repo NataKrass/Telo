@@ -16,4 +16,4 @@ const scroll = () => {
         }
     });
 }
-scroll();
+export default scroll;

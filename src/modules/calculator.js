@@ -87,4 +87,4 @@ const calculator = () => {
     priceInput.addEventListener('input', promo);
 }
 
-calculator();
+export default calculator;

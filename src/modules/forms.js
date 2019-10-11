@@ -166,4 +166,4 @@ const forms = () => {
     };
     sendFormFooter(footerForm);
 }
-forms();
+export default forms;

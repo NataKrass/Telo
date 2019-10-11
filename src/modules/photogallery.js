@@ -5,6 +5,7 @@ const gallery = () => {
     
     let currentSlide = 0,
         dotNew,
+        dots,
         interval;
 
     slide[0].classList.add('slider-active');
@@ -96,4 +97,4 @@ const gallery = () => {
     startSlide(1000); 
 };
 
-gallery();
+export default gallery;

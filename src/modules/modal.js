@@ -127,4 +127,4 @@ const modal = () => {
     sendForm(form1);
     sendForm(form2);
 }
-modal();
+export default modal;
