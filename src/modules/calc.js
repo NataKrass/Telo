@@ -37,9 +37,10 @@ const calc = () => {
 
     const invalidatePrice = ()=> {
         let discount;
+      
         const placePrices = prices[selectedPlace];  
         const priceEl =  placePrices.find( price => price.period == selectedPeriod);
-
+      
         if ( priceTotal.value != "ТЕЛО2019" ){
           discount = 1;
         } else {

@@ -4,10 +4,16 @@ const burger = () => {
     window.addEventListener('scroll', function() {
         if(pageYOffset > 200) {
            document.querySelector('nav').style.position = 'fixed';
-           document.querySelector('.fixed-gift').style.top = '95px';
+           if('.fixed-gift' == true){
+            document.querySelector('.fixed-gift').style.top = '95px';
+           }
+          
         } else {
             document.querySelector('nav').style.position = 'static';
-            document.querySelector('.fixed-gift').style.top = '15px';
+            if('.fixed-gift' == true){
+                document.querySelector('.fixed-gift').style.top = '15px';
+            }
+        
         }
     });
 

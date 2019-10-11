@@ -48,23 +48,25 @@ const modal = () => {
         }
     })
 
-    fixedGift.addEventListener('click', () => {
-        openModal(gift);
-        overlay.forEach((elem) => {
-            elem.addEventListener('click', () => {
-                gift.style.display = 'none';
+    if(fixedGift){
+        fixedGift.addEventListener('click', () => {
+            openModal(gift);
+            overlay.forEach((elem) => {
+                elem.addEventListener('click', () => {
+                    gift.style.display = 'none';
+                });
             });
-        });
-        closeForm.forEach((elem) => {
-            elem.addEventListener('click', () => {
-                gift.style.display = 'none';
+            closeForm.forEach((elem) => {
+                elem.addEventListener('click', () => {
+                    gift.style.display = 'none';
+                });
             });
+            fixedGift.style.display = 'none';
+            gift.querySelector('.close-btn').addEventListener('click', () => {
+                gift.style.display = 'none';
+            })
         });
-        fixedGift.style.display = 'none';
-        gift.querySelector('.close-btn').addEventListener('click', () => {
-            gift.style.display = 'none';
-        })
-    });
+    }
     clubSelect.addEventListener('click', () => {
         clubList.classList.toggle('d-block');
     });

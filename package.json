@@ -1,7 +1,6 @@
 {
-  "name": "diplom_middle",
+  "name": "y",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/NataKrass/Telo/issues"
   },
-  "homepage": "https://github.com/NataKrass/Telo#readme"
+  "homepage": "https://github.com/NataKrass/Telo#readme",
+  "description": ""
 }
