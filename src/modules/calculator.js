@@ -20,9 +20,9 @@ const calculator = () => {
         priceInput = document.querySelector('.price-message input');
             if(priceInput.value === 'ТЕЛО2019'){
                 priceTotalValue = priceTotal.textContent;
-                console.log(priceTotalValue);
+               
                 priceTotalValue = Math.floor(+priceTotalValue - (priceTotalValue * 30 / 100));
-                console.log(priceTotalValue);
+               
                 priceTotal.textContent = priceTotalValue;
                 return priceTotalValue;
             }
@@ -32,33 +32,42 @@ const calculator = () => {
     cardOrder.addEventListener('click', (e) => {
         let target = e.target;
         priceInput = document.querySelector('.price-message input');
-        if(teloMozaika.checked && m1.checked){
-            priceTotal.textContent = '1999';
-            promo();
+        if(teloMozaika.checked){
+            if(m1.checked){
+                priceTotal.textContent = '1999';
+                promo();
+            }
+            if(m2.checked){
+                priceTotal.textContent = '9900';
+                promo();
+            }
+            if(m3.checked){
+                priceTotal.textContent = '13900';
+                promo();
+            }
+            if(m4.checked){
+                priceTotal.textContent = '19900';
+                promo();
+            }
         }
-        if(teloMozaika.checked && m2.checked){
-            priceTotal.textContent = '9900';
-            promo();
-        }
-        if(teloMozaika.checked && m3.checked){
-            priceTotal.textContent = '13900';
-            promo();
-        }
-        if(teloMozaika.checked && m4.checked){
-            priceTotal.textContent = '19900';
-            promo();
-        }
-        if(teloShelkovo.checked && m1.checked){
-            priceTotal.textContent = '2999';
-        }
-        if(teloShelkovo.checked && m2.checked){
-            priceTotal.textContent = '14990';
-        }
-        if(teloShelkovo.checked && m3.checked){
-            priceTotal.textContent = '21990';
-        }
-        if(teloShelkovo.checked && m4.checked){
-            priceTotal.textContent = '24990';
+        
+        if(teloShelkovo.checked){
+            if(m1.checked){
+                priceTotal.textContent = '2999';
+                promo();
+            }
+            if(m2.checked){
+                priceTotal.textContent = '14990';
+                promo();
+            }
+            if(m3.checked){
+                priceTotal.textContent = '21990';
+                promo();
+            }
+            if(m4.checked){
+                priceTotal.textContent = '24990';
+                promo();
+            }
         }
         timeInput.forEach((item) => {
             if(target == item){
@@ -73,7 +82,6 @@ const calculator = () => {
       
         if(target == priceInput){
             promo();
-            console.log(target)
         }
     });        
     priceInput.addEventListener('input', promo);
