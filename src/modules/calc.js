@@ -2,8 +2,9 @@ const calc = () => {
     const cardOrder = document.querySelector('#card_order'),
     priceTotal = document.querySelector('.price-message>input'),
     showPrice = document.querySelector('#price-total');
-    priceTotal.name = 'promo';
-
+    if(priceTotal == true){
+        priceTotal.name = 'promo';
+    }
     const prices = {
         mozaika: [{period:1, price:1999},{period:6, price:9900}, {period:9, price:13900},{period:12, price:19900}],
         schelkovo: [{period:1, price:2999},{period:6, price:14990}, {period:9, price:21990},{period:12, price:24990}]

@@ -1,6 +1,7 @@
 'use strict';
 
 const calculator = () => {
+    
     let priceInput = document.querySelector('.price-message input'),
         priceTotal = document.getElementById('price-total');
         let priceTotalValue;
@@ -14,7 +15,10 @@ const calculator = () => {
         timeInput = document.querySelectorAll('.time input'),
         inputText = document.querySelectorAll('.input-text input'),
         clubs = document.querySelectorAll('.club input');
-        priceInput.name = 'promo';
+        if(priceInput === true){
+            priceTotal.name = 'promo';
+            console.log(priceInput === true)
+        }
 
     const promo = () => {
         priceInput = document.querySelector('.price-message input');
@@ -28,63 +32,69 @@ const calculator = () => {
             }
     }
 
-  
-    cardOrder.addEventListener('click', (e) => {
-        let target = e.target;
-        priceInput = document.querySelector('.price-message input');
-        if(teloMozaika.checked){
-            if(m1.checked){
-                priceTotal.textContent = '1999';
+        cardOrder.addEventListener('click', (e) => {
+            let target = e.target;
+            priceInput = document.querySelector('.price-message input');
+            if(teloMozaika && teloMozaika.checked){
+                if(m1.checked){
+                    priceTotal.textContent = '1999';
+                    promo();
+                }
+                if(m2.checked){
+                    priceTotal.textContent = '9900';
+                    promo();
+                }
+                if(m3.checked){
+                    priceTotal.textContent = '13900';
+                    promo();
+                }
+                if(m4.checked){
+                    priceTotal.textContent = '19900';
+                    promo();
+                }
+            }
+            
+            if(teloShelkovo && teloShelkovo.checked){
+                if(m1.checked){
+                    priceTotal.textContent = '2999';
+                    promo();
+                }
+                if(m2.checked){
+                    priceTotal.textContent = '14990';
+                    promo();
+                }
+                if(m3.checked){
+                    priceTotal.textContent = '21990';
+                    promo();
+                }
+                if(m4.checked){
+                    priceTotal.textContent = '24990';
+                    promo();
+                }
+            }
+            timeInput.forEach((item) => {
+                if(target == item){
+                    priceInput.value = '';
+                }
+            })
+            clubs.forEach((item) => {
+                if(target == item){
+                    priceInput.value = '';
+                }
+            })
+          
+            if(target == priceInput){
                 promo();
             }
-            if(m2.checked){
-                priceTotal.textContent = '9900';
-                promo();
-            }
-            if(m3.checked){
-                priceTotal.textContent = '13900';
-                promo();
-            }
-            if(m4.checked){
-                priceTotal.textContent = '19900';
-                promo();
-            }
-        }
-        
-        if(teloShelkovo.checked){
-            if(m1.checked){
-                priceTotal.textContent = '2999';
-                promo();
-            }
-            if(m2.checked){
-                priceTotal.textContent = '14990';
-                promo();
-            }
-            if(m3.checked){
-                priceTotal.textContent = '21990';
-                promo();
-            }
-            if(m4.checked){
-                priceTotal.textContent = '24990';
-                promo();
-            }
-        }
-        timeInput.forEach((item) => {
-            if(target == item){
-                priceInput.value = '';
-            }
-        })
-        clubs.forEach((item) => {
-            if(target == item){
-                priceInput.value = '';
-            }
-        })
-      
-        if(target == priceInput){
-            promo();
-        }
-    });        
-    priceInput.addEventListener('input', promo);
+        });        
+        try{
+        let priceInput = document.querySelector('.price-message input');
+        priceInput.addEventListener('input', promo);
+       } catch{
+           return null;
+       }
+   
+    
 }
 
 export default calculator;
