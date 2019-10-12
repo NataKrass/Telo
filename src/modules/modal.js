@@ -81,6 +81,7 @@ const modal = () => {
          agreeMessage = "Вы должны дать согласие на обработку данных";
         form.insertAdjacentHTML('beforeend', '<div class="form-texts"></div>');
         const statusMessage = form.querySelector('.form-texts');
+        statusMessage.style.color = 'yellow';
 
          form.querySelector('button').addEventListener('click', () => {
             if (!form.querySelector('label').checked) { 
@@ -108,7 +109,9 @@ const modal = () => {
                     form.querySelector('label').checked = false;
                     setTimeout(() => {
                         statusMessage.innerText = '';
-                        statusMessage.classList.remove('form-text')}, 2000);
+                        statusMessage.classList.remove('form-text');
+                        popups.forEach((item,i)=>{item.style.display = 'none';});
+                    }, 2000);
                 })
                
                 .catch ((error) => {
