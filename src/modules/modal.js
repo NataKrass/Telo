@@ -101,11 +101,14 @@ const modal = () => {
                  if (response.status !== 200) {
                      throw new Error('status network not 200');
                  }
+                    statusMessage.classList.add('form-text');
                     statusMessage.textContent = successMessage;
                     const inputs = document.querySelectorAll('input');
                     inputs.forEach((elem) => elem.value = '');
                     form.querySelector('label').checked = false;
-                    setTimeout(() => statusMessage.innerText = '', 2000);
+                    setTimeout(() => {
+                        statusMessage.innerText = '';
+                        statusMessage.classList.remove('form-text')}, 2000);
                 })
                
                 .catch ((error) => {
