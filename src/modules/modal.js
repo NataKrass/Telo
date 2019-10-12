@@ -12,7 +12,7 @@ const modal = () => {
     clubSelect = document.querySelector('.club-select'),
     clubList = clubSelect.querySelector('ul'),
     headerMain = document.querySelector('.header-main');
-let statusMessage;
+    let statusMessage;
     const openModal = (form) => {
         form.style.display = 'block';
     }
@@ -28,8 +28,7 @@ let statusMessage;
             });
             closeForm.forEach((elem) => {
                 elem.addEventListener('click', () => {
-                    freeVisitForm.style.display = 'none';
-                   
+                    freeVisitForm.style.display = 'none';  
                 });
             });
         }
@@ -80,14 +79,12 @@ let statusMessage;
          loadMessage = "Загрузка...",
          successMessage = "Данные успешно отправлены!",
          agreeMessage = "Вы должны дать согласие на обработку данных";
-         statusMessage = document.createElement('div');
-         statusMessage.style.cssText = 'font-size: 1.5rem;';
-         statusMessage.classList.add('form-text');
+        form.insertAdjacentHTML('beforeend', '<div class="form-texts"></div>');
+        const statusMessage = form.querySelector('.form-texts');
 
          form.querySelector('button').addEventListener('click', () => {
             if (!form.querySelector('label').checked) { 
-                form.appendChild(statusMessage);
-                statusMessage.textContent = agreeMessage;
+                statusMessage.innerText = agreeMessage;
              } 
          })
 
@@ -96,7 +93,6 @@ let statusMessage;
 
          form.addEventListener('submit', (event) => {
              event.preventDefault();
-             form.replaceWith(statusMessage);
              const formData = new FormData(form);
              statusMessage.textContent = loadMessage;
             
@@ -108,10 +104,8 @@ let statusMessage;
                     statusMessage.textContent = successMessage;
                     const inputs = document.querySelectorAll('input');
                     inputs.forEach((elem) => elem.value = '');
-                    form.querySelector('label').value = '';
-                    form.appendChild(formContentClone);
-                    setTimeout(() => statusMessage.replaceWith(formContentClone), 2000);
-                    
+                    form.querySelector('label').checked = false;
+                    setTimeout(() => statusMessage.innerText = '', 2000);
                 })
                
                 .catch ((error) => {
