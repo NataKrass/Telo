@@ -12,7 +12,7 @@ const modal = () => {
     clubSelect = document.querySelector('.club-select'),
     clubList = clubSelect.querySelector('ul'),
     headerMain = document.querySelector('.header-main');
-
+let statusMessage;
     const openModal = (form) => {
         form.style.display = 'block';
     }
@@ -29,6 +29,7 @@ const modal = () => {
             closeForm.forEach((elem) => {
                 elem.addEventListener('click', () => {
                     freeVisitForm.style.display = 'none';
+                   
                 });
             });
         }
@@ -78,7 +79,7 @@ const modal = () => {
         const errorMessage = "Ошибка",
          loadMessage = "Загрузка...",
          successMessage = "Данные успешно отправлены!",
-         agreeMessage = "Вы должны дать согласие на обработку данных",
+         agreeMessage = "Вы должны дать согласие на обработку данных";
          statusMessage = document.createElement('div');
          statusMessage.style.cssText = 'font-size: 1.5rem;';
          statusMessage.classList.add('form-text');
@@ -90,12 +91,15 @@ const modal = () => {
              } 
          })
 
+         let formContent = document.querySelector('#free_visit_form .form-content');
+         let formContentClone = formContent.cloneNode(true); 
+
          form.addEventListener('submit', (event) => {
              event.preventDefault();
              form.replaceWith(statusMessage);
              const formData = new FormData(form);
              statusMessage.textContent = loadMessage;
-
+            
              postData(formData)
              .then((response) => {
                  if (response.status !== 200) {
@@ -105,12 +109,16 @@ const modal = () => {
                     const inputs = document.querySelectorAll('input');
                     inputs.forEach((elem) => elem.value = '');
                     form.querySelector('label').value = '';
+                    form.appendChild(formContentClone);
+                    setTimeout(() => statusMessage.replaceWith(formContentClone), 2000);
+                    
                 })
-                
+               
                 .catch ((error) => {
                     statusMessage.textContent = errorMessage;
                     console.log(error);
-                })  
+                }) 
+                 
         });
     
         const postData = (formData) => {
