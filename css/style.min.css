@@ -2764,7 +2764,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
 .form-text {
     font-size: 1.5rem;
     height: 100%;
-    position: absolute;
+   
     top: 0;
     background: #1e1c34;
     width: 100%;
